@@ -1,0 +1,949 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>第三节：consul的命令介绍\(集群搭建\) | go微服务架构课程.知了课堂</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../chapter04/04consul的UI管理页面介绍.html" />
+    
+    
+    <link rel="prev" href="../chapter04/02consul组件安装.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="4.3"
+        data-chapter-title="第三节：consul的命令介绍\(集群搭建\)"
+        data-filepath="chapter04/03consul的命令介绍.md"
+        data-basepath=".."
+        data-revision="Mon Sep 07 2020 10:32:44 GMT+0800 (中国标准时间)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="chapter01/00.html">
+            
+                
+                    <a href="../chapter01/00.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        第一章：微服务介绍
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="chapter01/01什么是微服务.html">
+            
+                
+                    <a href="../chapter01/01什么是微服务.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        第一节：什么是微服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="chapter01/02单体架构的缺点.html">
+            
+                
+                    <a href="../chapter01/02单体架构的缺点.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        第二节：单体架构的缺点
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="chapter01/03微服务特点.html">
+            
+                
+                    <a href="../chapter01/03微服务特点.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        第三节：微服务特点
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="chapter/04微服务的缺点.html">
+            
+                
+                    <a href="../chapter/04微服务的缺点.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                        第四节：微服务的缺点
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="chapter/05单体架构和微服务架构的对比.html">
+            
+                
+                    <a href="../chapter/05单体架构和微服务架构的对比.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.5.</b>
+                        
+                        第五节：单体架构和微服务架构的对比
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="chapter/06为什么使用微服务.html">
+            
+                
+                    <a href="../chapter/06为什么使用微服务.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.</b>
+                        
+                        第六节：为什么使用微服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="chapter/07微服务的几个重要组件介绍.html">
+            
+                
+                    <a href="../chapter/07微服务的几个重要组件介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.7.</b>
+                        
+                        第七节：微服务的几个重要组件介绍
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="chapter02/00.html">
+            
+                
+                    <a href="../chapter02/00.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        第二章：protoBuf组件
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="chapter02/01protoBuf组件介绍.html">
+            
+                
+                    <a href="../chapter02/01protoBuf组件介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        第一节：protoBuf组件介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="chapter02/02protoBuf与其他数据格式对比.html">
+            
+                
+                    <a href="../chapter02/02protoBuf与其他数据格式对比.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        第二节：protoBuf与其他数据格式对比
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="chapter02/03protoBuf组件的优点和不足.html">
+            
+                
+                    <a href="../chapter02/03protoBuf组件的优点和不足.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        第三节：protoBuf组件的优点和不足
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="chapter02/04protoBuf组件的安装.html">
+            
+                
+                    <a href="../chapter02/04protoBuf组件的安装.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        第四节：protoBuf组件的安装
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="chapter02/05protoBuf组件语法介绍.html">
+            
+                
+                    <a href="../chapter02/05protoBuf组件语法介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        第五节：protoBuf组件语法介绍一
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="chapter02/06protoBuf组件语法介绍.html">
+            
+                
+                    <a href="../chapter02/06protoBuf组件语法介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        第六节：protoBuf组件语法介绍二
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="chapter02/07protoBuf组件小实战.html">
+            
+                
+                    <a href="../chapter02/07protoBuf组件小实战.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        第七节：protoBuf组件小实战
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="chapter03/00.html">
+            
+                
+                    <a href="../chapter03/00.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        第三章：grpc组件
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="chapter03/01什么是grpc.html">
+            
+                
+                    <a href="../chapter03/01什么是grpc.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        第一节：什么是grpc
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="chapter03/02rpc小实战.html">
+            
+                
+                    <a href="../chapter03/02rpc小实战.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        第二节：rpc小实战
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="chapter03/03grpc环境搭建.html">
+            
+                
+                    <a href="../chapter03/03grpc环境搭建.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        第三节：grpc环境搭建
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="chapter03/04grpc小实战.html">
+            
+                
+                    <a href="../chapter03/04grpc小实战.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        第四节：grpc+proto小实战
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="chapter04/00.html">
+            
+                
+                    <a href="../chapter04/00.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        第四章：consul组件
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="chapter04/01consul组件介绍.html">
+            
+                
+                    <a href="../chapter04/01consul组件介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        第一节：consul组件介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="chapter04/02consul组件安装.html">
+            
+                
+                    <a href="../chapter04/02consul组件安装.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        第二节：consul组件安装
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.3" data-path="chapter04/03consul的命令介绍.html">
+            
+                
+                    <a href="../chapter04/03consul的命令介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        第三节：consul的命令介绍\(集群搭建\)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="chapter04/04consul的UI管理页面介绍.html">
+            
+                
+                    <a href="../chapter04/04consul的UI管理页面介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        第四节：consul的UI管理页面介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="chapter04/05consul服务注册.html">
+            
+                
+                    <a href="../chapter04/05consul服务注册.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        第五节：consul服务注册
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="chapter04/06consul服务发现.html">
+            
+                
+                    <a href="../chapter04/06consul服务发现.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                        第六节：consul服务发现
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="chapter04/07consul服务配置自启动.html">
+            
+                
+                    <a href="../chapter04/07consul服务配置自启动.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.7.</b>
+                        
+                        第六节：consul服务配置自启动
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="chapter05/00.html">
+            
+                
+                    <a href="../chapter05/00.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        第五章：micor微服务框架
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="chapter05/01micor介绍.html">
+            
+                
+                    <a href="../chapter05/01micor介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        第一节：micor介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="chapter05/02micor环境搭建.html">
+            
+                
+                    <a href="../chapter05/02micor环境搭建.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        第二节：micor环境搭建
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="chapter05/03micor命令介绍.html">
+            
+                
+                    <a href="../chapter05/03micor命令介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        第三节：micor命令介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="chapter05/04micor创建web类型项目实战.html">
+            
+                
+                    <a href="../chapter05/04micor创建web类型项目实战.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        第四节：micor创建web类型项目实战
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="chapter05/05micor升级为grpc通信.html">
+            
+                
+                    <a href="../chapter05/05micor升级为grpc通信.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                        第五节：micor升级为grpc通信
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="chapter05/06micor创建srv类型项目实战.html">
+            
+                
+                    <a href="../chapter05/06micor创建srv类型项目实战.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                        第六节：micor创建srv类型项目实战
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="chapter05/07micro集群部署.html">
+            
+                
+                    <a href="../chapter05/07micro集群部署.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.7.</b>
+                        
+                        第七节：micro集群部署
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="chapter06/00.html">
+            
+                
+                    <a href="../chapter06/00.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        第六章：docker部署
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="chapter06/01docker介绍.html">
+            
+                
+                    <a href="../chapter06/01docker介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        第一节：docker介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="chapter06/02docker安装-windows系统.html">
+            
+                
+                    <a href="../chapter06/02docker安装-windows系统.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        第二节：docker安装-windows系统
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="chapter06/03docker安装-linux系统.html">
+            
+                
+                    <a href="../chapter06/03docker安装-linux系统.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        第三节：docker安装-linux系统
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="chapter06/04docker镜像.html">
+            
+                
+                    <a href="../chapter06/04docker镜像.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                        第四节：docker镜像
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.5" data-path="chapter06/05docker容器操作.html">
+            
+                
+                    <a href="../chapter06/05docker容器操作.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.5.</b>
+                        
+                        第五节：docker容器操作
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.6" data-path="chapter06/07docker项目部署.html">
+            
+            <span><b>6.6.</b> 第六节：docker项目部署</span>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="chapter07/00.html">
+            
+                
+                    <a href="../chapter07/00.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        第七章：实战
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="chapter07/01实战介绍.html">
+            
+                
+                    <a href="../chapter07/01实战介绍.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        第一节：实战介绍
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >go微服务架构课程.知了课堂</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="consul&#x89D2;&#x8272;&#x4ECB;&#x7ECD;">consul&#x89D2;&#x8272;&#x4ECB;&#x7ECD;</h1>
+<h2 id="&#x4E00;&#x3001;&#x542F;&#x52A8;agent">&#x4E00;&#x3001;&#x542F;&#x52A8;agent</h2>
+<p>1.&#x82E5;&#x8981;&#x4F7F;&#x7528;consul&#xFF0C;&#x5FC5;&#x987B;&#x8FD0;&#x884C;agent&#x3002;agent&#x53EF;&#x4EE5;&#x8FD0;&#x884C;&#x4E3A;server&#x6216;client&#x6A21;&#x5F0F;&#xFF0C;&#x6BCF;&#x4E2A;&#x6570;&#x636E;&#x4E2D;&#x5FC3;&#x5FC5;&#x987B;&#x81F3;&#x5C11;&#x62E5;&#x6709;&#x4E00;&#x53F0;server&#xFF0C;&#x5EFA;&#x8BAE;&#x5728;&#x4E00;&#x4E2A;&#x96C6;&#x7FA4;&#x4E2D;&#x6709;3&#x6216;&#x8005;5&#x4E2A;server.&#x4E00;&#x65B9;&#x9762;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x5728;&#x51FA;&#x73B0;&#x5931;&#x8D25;&#x65F6;&#x9020;&#x6210;&#x6570;&#x636E;&#x4E22;&#x5931;&#xFF1B;&#x53E6;&#x4E00;&#x65B9;&#x9762;&#x968F;&#x7740;&#x6DFB;&#x52A0;&#x66F4;&#x591A;&#x7684;&#x673A;&#x5668;&#xFF0C;&#x4E00;&#x81F4;&#x6027;&#x4F1A;&#x9010;&#x6E10;&#x53D8;&#x6162;&#x3002;&#x8FD9;&#x5728;&#x6545;&#x969C;&#x60C5;&#x51B5;&#x4E0B;&#x7684;&#x53EF;&#x7528;&#x6027;&#x548C;&#x6027;&#x80FD;&#x4E4B;&#x95F4;&#x53D6;&#x5F97;&#x4E86;&#x5E73;&#x8861;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x6570;&#x91CF;&#x6CA1;&#x6709;&#x9650;&#x5236;&#xFF0C;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x5730;&#x6269;&#x5C55;&#x5230;&#x6570;&#x5343;&#x6216;&#x6570;&#x4E07;&#x3002;</p>
+<p>2.&#x8FD0;&#x884C;agent server</p>
+<pre><code>&#x5F00;&#x53D1;&#x6A21;&#x5F0F;&#x542F;&#x52A8;&#x5355;&#x8282;&#x70B9;&#xFF1A;
+consul agent -dev -ui -client 0.0.0.0
+
+
+
+&#x8FD0;&#x884C;&#x96C6;&#x7FA4;&#xFF1A;&#x56DB;&#x4E2A;server&#xFF0C;&#x4E00;&#x4E2A;client
+
+hallen-&#x96C6;&#x7FA4;IP:consul agent -server -bootstrap-expect 5 -data-dir /tmp/consul -node=s_hallen -bind=192.168.0.106 -ui -rejoin -client 0.0.0.0 -join 192.168.0.106
+
+hallen1-&#x670D;&#x52A1;&#x7AEF;:consul agent -server -bootstrap-expect 5 -data-dir /tmp/consul -node=s_hallen1 -bind=192.168.0.109 -ui -rejoin -client 0.0.0.0 -join 192.168.0.106
+hallen2-&#x670D;&#x52A1;&#x7AEF;:consul agent -server -bootstrap-expect 5 -data-dir /tmp/consul -node=s_hallen2 -bind=192.168.0.111 -ui -rejoin -client 0.0.0.0 -join 192.168.0.106
+hallen3-&#x670D;&#x52A1;&#x7AEF;:consul agent -server -bootstrap-expect 5 -data-dir /tmp/consul -node=s_hallen3 -bind=192.168.0.112 -ui -rejoin -client 0.0.0.0 -join 192.168.0.106
+
+hallen4-&#x5BA2;&#x6237;&#x7AEF;:consul agent -data-dir /tmp/consul -node=c_hallen4 -bind=192.168.0.113 -ui -rejoin -join 192.168.0.106
+
+
+
+
+&#x5148;&#x8FD0;&#x884C;&#x96C6;&#x7FA4;IP&#x7684;agent&#xFF0C;&#x7136;&#x540E;&#x8FD0;&#x884C;&#x5176;&#x4ED6;&#x7684;server&#x6216;&#x8005;client&#xFF0C;&#x4F7F;&#x7528;-join&#x52A0;&#x5165;&#x8FDB;&#x53BB;&#xFF0C;&#x786E;&#x4FDD;&#x52A0;&#x5165;&#x4E4B;&#x524D;&#x5B58;&#x5728;&#x8BE5;&#x8282;&#x70B9;
+
+
+
+
+
+-server &#xFF1A; &#x5B9A;&#x4E49;agent&#x8FD0;&#x884C;&#x5728;server&#x6A21;&#x5F0F;
+-bootstrap-expect &#xFF1A;&#x5728;&#x4E00;&#x4E2A;datacenter&#x4E2D;&#x671F;&#x671B;&#x63D0;&#x4F9B;&#x7684;server&#x8282;&#x70B9;&#x6570;&#x76EE;&#xFF0C;&#x5F53;&#x8BE5;&#x503C;&#x63D0;&#x4F9B;&#x7684;&#x65F6;&#x5019;&#xFF0C;consul&#x4E00;&#x76F4;&#x7B49;&#x5230;&#x8FBE;&#x5230;&#x6307;&#x5B9A;sever&#x6570;&#x76EE;&#x7684;&#x65F6;&#x5019;&#x624D;&#x4F1A;&#x5F15;&#x5BFC;&#x6574;&#x4E2A;&#x96C6;&#x7FA4;&#xFF0C;&#x8BE5;&#x6807;&#x8BB0;&#x4E0D;&#x80FD;&#x548C;bootstrap&#x5171;&#x7528;
+-data-dir=/tmp/consul &#x76EE;&#x5F55;
+-node=s1 &#x8282;&#x70B9;&#x5728;&#x96C6;&#x7FA4;&#x4E2D;&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x5728;&#x4E00;&#x4E2A;&#x96C6;&#x7FA4;&#x4E2D;&#x5FC5;&#x987B;&#x662F;&#x552F;&#x4E00;&#x7684;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;&#x8BE5;&#x8282;&#x70B9;&#x7684;&#x4E3B;&#x673A;&#x540D;
+-bind&#xFF1A;&#x8BE5;&#x670D;&#x52A1;&#x5668;&#x8282;&#x70B9;&#x540D;,&#x8BE5;&#x5730;&#x5740;&#x7528;&#x6765;&#x5728;&#x96C6;&#x7FA4;&#x5185;&#x90E8;&#x7684;&#x901A;&#x8BAF;&#xFF0C;&#x96C6;&#x7FA4;&#x5185;&#x7684;&#x6240;&#x6709;&#x8282;&#x70B9;&#x5230;&#x5730;&#x5740;&#x90FD;&#x5FC5;&#x987B;&#x662F;&#x53EF;&#x8FBE;&#x7684;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;0.0.0.0
+-ui-dir(-ui)&#xFF1A; &#x63D0;&#x4F9B;&#x5B58;&#x653E;web ui&#x8D44;&#x6E90;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x8BE5;&#x76EE;&#x5F55;&#x5FC5;&#x987B;&#x662F;&#x53EF;&#x8BFB;&#x7684;
+-rejoin&#xFF1A;&#x4F7F;consul&#x5FFD;&#x7565;&#x5148;&#x524D;&#x7684;&#x79BB;&#x5F00;&#xFF0C;&#x5728;&#x518D;&#x6B21;&#x542F;&#x52A8;&#x540E;&#x4ECD;&#x65E7;&#x5C1D;&#x8BD5;&#x52A0;&#x5165;&#x96C6;&#x7FA4;&#x4E2D;&#x3002;
+-config-dir&#xFF1A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#xFF0C;&#x91CC;&#x9762;&#x6240;&#x6709;&#x4EE5;.json&#x7ED3;&#x5C3E;&#x7684;&#x6587;&#x4EF6;&#x90FD;&#x4F1A;&#x88AB;&#x52A0;&#x8F7D;
+-client&#xFF1A;consul&#x670D;&#x52A1;&#x4FA6;&#x542C;&#x5730;&#x5740;&#xFF0C;&#x8FD9;&#x4E2A;&#x5730;&#x5740;&#x63D0;&#x4F9B;HTTP&#x3001;DNS&#x3001;RPC&#x7B49;&#x670D;&#x52A1;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;127.0.0.1&#x6240;&#x4EE5;&#x4E0D;&#x5BF9;&#x5916;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x8981;&#x5BF9;&#x5916;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#x6539;&#x6210;0.0.0.0
+</code></pre><p>ui&#x754C;&#x9762;&#xFF1A;<a href="http://127.0.0.1:8500/" target="_blank">http://127.0.0.1:8500/</a></p>
+<p>3.&#x8FD0;&#x884C;agent client</p>
+<pre><code>consul agent -data-dir /tmp/consul -node=c1 -bind=192.168.0.113 -config-dir=/etc/consul.d/ -join 192.168.1.104
+
+
+-join &#x52A0;&#x5165;&#x5230;&#x5DF2;&#x6709;&#x7684;&#x96C6;&#x7FA4;&#x4E2D;&#x53BB;&#xFF0C;&#x96C6;&#x7FA4;&#x5730;&#x5740;
+</code></pre><h2 id="&#x4E8C;&#x3001;&#x67E5;&#x770B;&#x96C6;&#x7FA4;&#x6210;&#x5458;">&#x4E8C;&#x3001;&#x67E5;&#x770B;&#x96C6;&#x7FA4;&#x6210;&#x5458;</h2>
+<pre><code class="lang-go">consul members
+</code></pre>
+<h2 id="&#x4E09;&#x3001;&#x505C;&#x6B62;agent">&#x4E09;&#x3001;&#x505C;&#x6B62;agent</h2>
+<pre><code class="lang-go">consul leave
+</code></pre>
+<h2 id="&#x56DB;&#x3001;consul&#x914D;&#x7F6E;&#x53C2;&#x6570;&#x5927;&#x5168;&#xFF1A;">&#x56DB;&#x3001;consul&#x914D;&#x7F6E;&#x53C2;&#x6570;&#x5927;&#x5168;&#xFF1A;</h2>
+<h2 id="httpswwwcnblogscomsunsky303p9209024html"><a href="https://www.cnblogs.com/sunsky303/p/9209024.html" target="_blank">https://www.cnblogs.com/sunsky303/p/9209024.html</a></h2>
+<p>halle1:192.168.0.105   server</p>
+<p>halle2:192.168.0.106    server</p>
+<p>halle3:192.168.0.108    server</p>
+<p>halle4:192.168.0.109    client</p>
+<p>halle:192.168.0.104     server &#x96C6;&#x7FA4;ip</p>
+<p>s_hallen:192.168.0.104</p>
+<p>s_hallen2:192.168.0.103</p>
+<p>s_hallen3:192.168.0.111</p>
+<pre><code>consul agent -server -bootstrap-expect 3 -data-dir /tmp/consul -bind=192.168.0.104 -client 0.0.0.0 -node=s_hallen -rejoin -ui -join 192.168.0.104
+</code></pre>
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../chapter04/02consul组件安装.html" class="navigation navigation-prev " aria-label="Previous page: 第二节：consul组件安装"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../chapter04/04consul的UI管理页面介绍.html" class="navigation navigation-next " aria-label="Next page: 第四节：consul的UI管理页面介绍"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
